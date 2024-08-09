@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{base::layout(~{::section})}" xmlns:font-weight="http://java.sun.com/JSP/Page">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+
+</head>
+<body>
+<section class="mt-auto">
+    <link rel="stylesheet" th:href="@{/css/register.css}"/>
+
+    <div class="container">
+        <div class="title">Registration</div>
+        <th:block th:if="${session.succMsg}">
+            <p class="text-success fw-bold">[[${session.succMsg}]]</p>
+            <th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
+        </th:block>
+        <div class="content">
+            <form action="/saveUser" enctype="multipart/form-data" method="post">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Full Name</span>
+                        <input type="text" name="fullname"  placeholder="Enter your name" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">City</span>
+                        <input type="text" name="City" placeholder="Enter your city" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Email</span>
+                        <input type="text" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Phone Number</span>
+                        <input type="text" name="phone" placeholder="Enter your number" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Password</span>
+                        <input type="password" name="password" placeholder="Enter your password" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Confirm Password</span>
+                        <input type="password" name="confirmPassword" placeholder="Confirm your password" required>
+                    </div>
+                </div>
+                <div class="container">
+                    <input type="file" id="file-upload" name="img" class="inputfile" />
+                    <text class="bold-text"> Upload your profile</text>
+                    <label for="file-upload" class="upload-label">Choose a file...</label>
+
+                </div>
+
+                <div class="button">
+                    <input type="submit" value="Register">
+                </div>
+                <div class="signup-link"  th:align="center">
+                    Already have an account? <a href="/login"> Login now</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</section>
+
+</body>
+</html>

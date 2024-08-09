@@ -1,0 +1,48 @@
+.container {
+    max-width: 1200px; /* Adjust as needed */
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table thead tr {
+    background: linear-gradient(135deg, #ff6ec4, #71b7e6);
+    color: white;
+}
+
+.table th,
+.table td {
+    padding: 10px 15px;
+    text-align: center;
+
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 2px;
+    background: linear-gradient(135deg, #71b7e6, #ff6ec4);
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: green;
+}

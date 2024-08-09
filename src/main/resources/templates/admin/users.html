@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>User List</title>
+<!--    <link rel="stylesheet" href="styles.css">-->
+</head>
+<body>
+<section>
+    <div class="container-fluid mt-5 p-5">
+        <div class="card card-sh">
+            <div class="card-header text-center">
+                <p class="fs-4"><strong>View Users</strong></p>
+                <th:block th:if="${session.succMsg}">
+                    <p class="text-success fw-bold">[[${session.succMsg}]]</p>
+                    <th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
+                </th:block>
+                <th:block th:if="${session.errorMsg}">
+                    <p class="text-danger fw-bold">[[${session.errorMsg}]]</p>
+                    <th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
+                </th:block>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Full Name</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+
+                    </tr>
+                    </thead>
+<!--                    <tbody>-->
+<!--                    <tr th:each="p,c:${users}">-->
+<!--                        <th scope="row">[[${c.id}]]</th>-->
+<!--                        <td>[[${p.fullName}]]</td>-->
+<!--                        <td>[[${p.city}]]</td>-->
+<!--                        <td>[[${p.email}]]</td>-->
+<!--                        <td>[[${p.phone}]]</td>-->
+<!--                        <td>-->
+<!--                            <a th:href="@{'/admin/deleteUser/' + ${user.id}}" class="btn btn-sm btn-danger">-->
+<!--                                <i class="fa-solid fa-trash"></i> Delete-->
+<!--                            </a>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Details</title>
+    <link rel="stylesheet" href="/path/to/bootstrap.css">
+</head>
+<body>
+<section>
+    <div class="container mt-5">
+        <h2 class="text-center" th:text="${course.title}">Course Title</h2>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <img th:src="@{'/img/course_img/' + ${course.image}}" class="card-img-top" alt="Course Image">
+                    <div class="card-body">
+                        <p class="card-text" th:text="'Coach: ' + ${course.coach}">Course Coach</p>
+                        <p class="card-text" th:text="'Price: $' + ${course.price}">Course Price</p>
+                        <p class="card-text" th:text="'Discount: ' + ${course.discount} + '%'">Course Discount</p>
+                        <p class="card-text" th:text="'Discounted Price: $' + (${course.price - (course.price * course.discount / 100)})">Course Discounted Price</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>

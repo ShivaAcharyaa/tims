@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>User - Available Courses</title>
+    <!-- Add necessary CSS files -->
+    <link rel="stylesheet" href="/path/to/bootstrap.css">
+</head>
+<body>
+
+<section>
+    <div class="container mt-5">
+        <h2 class="text-center">Available Courses</h2>
+        <div class="row">
+            <div class="col-md-3" th:each="course : ${courses}">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${course.title}">Course Title</h5>
+                        <p class="card-text" th:text="'Coach: ' + ${course.coach}">Course Coach</p>
+                        <p class="card-text">
+                            <span th:text="'Price: $' + ${course.price}">Course Price</span><br>
+                            <span th:text="'Discount: ' + ${course.discount} + '%'">Course Discount</span><br>
+                        </p>
+                        <a th:href="@{'/course/' + ${course.id}}" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div th:if="${#lists.isEmpty(courses)}">
+            <p class="text-center text-danger">No courses available</p>
+        </div>
+    </div>
+</section>
+</body>
+</html>
